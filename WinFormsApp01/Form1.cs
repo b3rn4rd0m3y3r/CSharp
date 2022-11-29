@@ -1,13 +1,4 @@
-ï»¿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Forms;
+using System.Drawing.Configuration;
 
 namespace WinFormsApp01
 {
@@ -16,20 +7,34 @@ namespace WinFormsApp01
         public Form1()
         {
             InitializeComponent();
-        }
+            this.BackColor = Color.Cornsilk;
+            this.ForeColor = Color.Chocolate;
+            this.Width = 1080;
+            btnExec.BackColor = Color.Red;
+            btnExec.ForeColor = Color.Cornsilk;
+            // Fonte do formulário
+            this.Font = new System.Drawing.Font(
+                "Arial",
+                16F,
+                System.Drawing.FontStyle.Bold,
+                System.Drawing.GraphicsUnit.Point,
+                ((byte) (0))
+                );
+         }
 
-        private void ClickBtnExec(object sender, EventArgs e)
+        private void btnExec_Click(object sender, EventArgs e)
         {
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            string sNome = inputNome.Text;
-            DialogResult mbox = MessageBox.Show("Olah. To aki.", sNome, buttons, MessageBoxIcon.Question);
-            if (mbox == DialogResult.Yes)
+            string[] linhas = new string[10];
+            int cnt = 0;
+            DialogResult dlgRes = MessageBox.Show("Mensagem extensa","Título",MessageBoxButtons.YesNo);
+            txtExibir.Text = dlgRes.ToString();
+            foreach (Control c in this.Controls)
             {
-                // Closes the parent form.
-                this.Close();
+                linhas[cnt] = c.Name;
+                cnt++;
             }
+            textBox1.Lines = linhas;
         }
-
 
     }
 }
