@@ -6,6 +6,11 @@
             <asp:button id="MyButton" text="Echo Input" Onclick="MyButton_Click" runat="server"></asp:button>
             <asp:label id="MyLabel" runat="server" />
         </form>
+		
+		
+		
+		
+		
 	<pre>
 		&lt;&#37;@ Language="C#" Inherits="MyStuff.MinhaClass"  src="MyCode.cs" %&gt;
 		&lt;HTML&gt;
